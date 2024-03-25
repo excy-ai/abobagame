@@ -1,5 +1,8 @@
+#ifndef ABOBAVULKAN_UI_H
+#define ABOBAVULKAN_UI_H
+
 #include "includes.h"
-#include "gfx.cpp"
+#include "gfx.h"
 
 void renderUI() {
     // Poll and handle events (inputs, window resize, etc.)
@@ -80,3 +83,5 @@ void renderUI() {
         FramePresent(wd);
     }
 }
+
+#endif //ABOBAVULKAN_UI_H

@@ -1,3 +1,6 @@
+#ifndef ABOBAVULKAN_STATE_H
+#define ABOBAVULKAN_STATE_H
+
 #include "includes.h"
 
 static bool show_demo_window = true;
@@ -19,3 +22,5 @@ static VkDescriptorPool g_DescriptorPool = VK_NULL_HANDLE;
 static ImGui_ImplVulkanH_Window g_MainWindowData;
 static int g_MinImageCount = 2;
 static bool g_SwapChainRebuild = false;
+
+#endif //ABOBAVULKAN_STATE_H

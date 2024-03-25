@@ -13,20 +13,15 @@
 //   the backend itself (imgui_impl_vulkan.cpp), but should PROBABLY NOT be used by your own engine/app code.
 // Read comments in imgui_impl_vulkan.h.
 
-#include "includes.h"
-#include "gfx.cpp"
-#include "ui.cpp"
+#include "gfx.h"
+#include "loop.h"
 
 // Main code
 int main(int, char **) {
-    if (!setupGfx()) {
+    if (setupGfx()) {
         return EXIT_FAILURE;
     }
-
-    while (!glfwWindowShouldClose(window)) {
-        renderUI();
-    }
-
+    gameLoop();
     cleanupGfx();
     return EXIT_SUCCESS;
 }

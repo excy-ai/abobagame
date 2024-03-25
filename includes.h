@@ -12,6 +12,6 @@
 #include <vulkan/vulkan.h>
 //#include <vulkan/vulkan_beta.h>
 
-#include "state.cpp"
+#include "state.h"
 
 #endif //ABOBAVULKAN_INCLUDES_H

@@ -1,8 +1,20 @@
+#ifndef ABOBAVULKAN_GFX_H
+#define ABOBAVULKAN_GFX_H
 
 #define GLFW_INCLUDE_NONE
 #define GLFW_INCLUDE_VULKAN
 
 #include "includes.h"
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_vulkan.h"
+#include <GLFW/glfw3.h>
+#include <vulkan/vulkan.h>
+//#include <vulkan/vulkan_beta.h>
 
 //#define APP_USE_UNLIMITED_FRAME_RATE
 #ifdef _DEBUG
@@ -428,3 +440,5 @@ static void cleanupGfx() {
     glfwDestroyWindow(window);
     glfwTerminate();
 }
+
+#endif //ABOBAVULKAN_GFX_H
