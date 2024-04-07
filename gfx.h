@@ -345,6 +345,13 @@ static GLFWwindow *window;
 static VkResult err;
 static VkSurfaceKHR surface;
 static ImGui_ImplVulkanH_Window *wd;
+
+struct GameUIWindow {
+    int w;
+    int h;
+};
+static GameUIWindow gui_wd = {1280, 720};
+
 static int setupGfx() {
     glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit())
@@ -352,7 +359,10 @@ static int setupGfx() {
 
     // Create window with Vulkan context
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-    window = glfwCreateWindow(1280, 720, "Dear ImGui GLFW+Vulkan example", nullptr, nullptr);
+    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+    window = glfwCreateWindow(gui_wd.w, gui_wd.h, "Dear ImGui GLFW+Vulkan example", nullptr, nullptr);
+
+    //TODO: add callback to store updated window w&h to gui_wd
     if (!glfwVulkanSupported()) {
         printf("GLFW: Vulkan Not Supported\n");
         return 1;
@@ -379,10 +389,8 @@ static int setupGfx() {
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
-    io = ImGui::GetIO();
-    (void) io;
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+    io = &ImGui::GetIO();
+    io->ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
 
     // Setup Dear ImGui style
     ImGui::StyleColorsDark();

@@ -28,6 +28,11 @@ set(IMGUI_DIR lib/imgui)
 include_directories(${IMGUI_DIR} ${IMGUI_DIR}/backends)
 
 # Libraries
+#if (WIN32 OR MSVC OR MSYS OR MINGW)
+#                        FIXME: uncomment section & set manually if not working on Windows
+#    set(ENV{VULKAN_SDK} "G:/VulkanSDK/1.3.280.0")
+#endif()
+
 find_package(Vulkan REQUIRED)
 
 set(LIBRARIES "glfw;glm;Vulkan::Vulkan")
