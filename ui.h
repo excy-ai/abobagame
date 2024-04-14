@@ -55,7 +55,7 @@ void togglePlayer() {
     currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
 }
 
-void makeMove(u_int8_t pos) {
+void makeMove(uint8_t pos) {
     std::cout << (int) pos << " " << currentPlayer;
     if (state[pos] == ' ') {
         state[pos] = currentPlayer;
@@ -105,7 +105,7 @@ void renderBoard() {
     ImVec2 p = ImGui::GetCursorScreenPos();
     for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 3; ++j) {
-            u_int8_t pos = i * 3 + j + 1;
+            uint8_t pos = i * 3 + j + 1;
             auto pivot = ImVec2(p.x + 25 + i * cellStep, p.y + 25 + j * cellStep);
             ImGui::SetCursorPos(pivot + ImVec2(-25.f, -25.f));
             drawCell(pivot, 25.f, IM_COL32(255, 0, 0, 255));
@@ -137,7 +137,7 @@ void drawTable() {
             ImGui::TableNextRow();
             for (int column = 0; column < 3; column++) {
                 ImGui::TableSetColumnIndex(column);
-                u_int8_t pos = row * 3 + column + 1;
+                uint8_t pos = row * 3 + column + 1;
                 char buf[2] = {state[pos], '\0'};
                 ImGui::PushID(pos);
                 if (ImGui::Button(buf, ImVec2(-FLT_MIN, 0.0f))) {
